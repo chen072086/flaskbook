@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .modelname
+        {float:left}
+    </style>
+
+    <script type="text/javascript">
+
+
+    function deleterow(obj) {   //
+        var flag = confirm("确定要删除吗？");  //提示是否要删除 flag=true/false (  true删除  false不删除)
+        if (flag == true) {
+            var tr = obj.parentNode.parentNode;  //parentNode父节点
+            var table = tr.parentNode;
+            table.removeChild(tr); //删除子节点
+        } else{
+        }
+    }
+
+    function addrow(obj){
+      var tr=obj.parentNode.parentNode;//obj.parentNode.parentNode是<tr>
+        var table=tr.parentNode; //tr.parentNode是<table>
+        var y=table.rows.length;
+        var oldRow=tr;
+        var appendtable=document.getElementById('testtable')
+
+        if(oldRow){
+            var newRow=oldRow.cloneNode(true);
+            newRow.setAttribute("id","y-1");
+        }
+            table.appendChild(newRow);
+            appendtable.appendChild(newRow);
+    }
+
+    </script>
+</head>
+<body>
+    <table class="table table-bordered" border="2" id="stuRecordTable">
+        <tr>
+            <th>tableid</th>
+            <th>snapshot_id</th>
+            <th>respondents_name</th>
+            <th>respondents_status</th>
+            <th>respondents_md5</th>
+            <th>need_file_count</th>
+            <th>file_count</th>
+            <th>zero_count</th>
+            <th>answer_process</th>
+            <th>paper_name</th>
+            <th>elapsed_time</th>
+            <th>is_deleted</th>
+            <th>data_version</th>
+            <th>created_by</th>
+            <th>created_datetime</th>
+            <th>updated_by</th>
+            <th>updated_datetime</th>
+            <th>version</th>
+            <th>class_id</th>
+            <th>task_id</th>
+            <th>student_id</th>
+            <th>full_mark</th>
+            <th>total_score</th>
+            <th>file_id</th>
+            <th>machine_status</th>
+            <th>machine_reason</th>
+            <th>duration</th>
+            <th>操作</th>
+        </tr>
+          {% for i in u %}
+             <tr>
+                <td><input type="text" name ="tableid" value="{{ i[0] }}"></td>
+                <td><input type="text" name ="snapshot_id" value="{{ i[1] }}"></td>
+                <td><input type="text" name ="respondents_name" value="{{ i[2] }}"></td>
+                <td><input type="text" name ="respondents_status" value="{{ i[3] }}"></td>
+                <td><input type="text" name ="respondents_md5" value="{{ i[4] }}"></td>
+                <td><input type="text" name ="need_file_count" value="{{ i[5] }}"></td>
+                <td><input type="text" name ="file_count" value="{{ i[6] }}"></td>
+                <td><input type="text" name="zero_count" value="{{ i[7] }}"></td>
+                <td><input type="text" name="answer_process" value="{{ i[8] }}"></td>
+                <td><input type="text" name="paper_name" value="{{ i[9] }}"></td>
+                <td><input type="text" name ="elapsed_time" value="{{ i[10] }}"></td>
+                <td><input type="text" name ="is_deleted" value="{{ i[11] }}"></td>
+                <td><input type="text" name ="data_version" value="{{ i[12] }}"></td>
+                <td><input type="text" name ="created_by" value="{{ i[13] }}"></td>
+                <td><input type="text" name ="created_datetime" value="{{ i[14] }}"></td>
+                <td><input type="text" name ="updated_by" value="{{ i[15] }}"></td>
+                <td><input type="text" name ="updated_datetime" value="{{ i[16] }}"></td>
+                <td><input type="text" name ="version" value="{{ i[17] }}"></td>
+                <td><input type="text" name ="class_id" value="{{ i[18] }}"></td>
+                <td><input type="text" name ="task_id" value="{{ i[19] }}"></td>
+                <td><input type="text" name ="student_id" value="{{ i[20] }}"></td>
+                <td><input type="text" name ="full_mark" value="{{ i[21] }}"></td>
+                <td><input type="text" name ="total_score" value="{{ i[22] }}"></td>
+                <td><input type="text" name ="file_id" value="{{ i[23] }}"></td>
+                <td><input type="text" name ="machine_status" value="{{ i[24] }}"></td>
+                <td><input type="text" name ="machine_reason" value="{{ i[25] }}"></td>
+                <td><input type="text" name ="duration" value="{{ i[26] }}"></td>
+                <td><input type="button" value="复制" onclick="addrow(this)"/><input type="button" value="删除" onclick="deleterow(this)"/><input type="submit" value="提交" /></td>
+            </tr>
+        {% endfor %}
+    </table>
+     <form action="/instspon" method="post">
+        <table border="2" id ='testtable' >
+
+        </table>
+     </form>
+
+</body>
+</html>

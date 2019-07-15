@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style type="text/css">
+        .form-group{
+            margin-top: 20px;
+        }
+    </style>
+    <h2 align="center">线上平台生产报告解决方案</h2>
+    <form action="taskid" method="GET" class="form-group">
+        <label>第一步</label>
+        <input type="text" placeholder="请输入--taskid" name="taskid" size="50"/>
+        <input type="submit" value="查询" />
+    </form>
+    {% for message in get_flashed_messages() %}
+        {{message}}
+    {% endfor %}
+    <form action="taskduty" method="post" class="form-group">
+        <label>第二步</label>
+        <input type="text" placeholder="查询任务学生关系--taskid" name="dutyrelation" size="50"/>
+        <input type="submit" value="查询" />
+    </form>
+    <form action="searchanswer" method="post" class="form-group">
+        <label>第三步</label>
+        <input type="text" placeholder="查询考生答案表--taskid" name="taskid" size="50"/>
+        <input type="submit" value="查询" />
+    </form>
+
+    <form action="sturespond" method="post" class="form-group">
+        <label>第四步</label>
+        <input type="text" placeholder="查询考生答卷记录--taskid" name="taskid" size="50" />
+        <input type="submit" value="查询" />
+    </form>
+
+    <form action="searchstatus" method="post" class="form-group">
+        <label>第五步</label>
+        <input type="text" placeholder="重新生成报告--taskid" name="taskid" size="50" />
+        <input type="submit" value="查询" />
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+{% block main %}
+    <div class="logo"><img src="{{ url_for('static',filename='images/logo.jpg') }}"  alt="logo"/></div>
+    <link rel="stylesheet" href="{{url_for('static',filename='logincss.css')}}">
+     <div class="container">
+
+        <h2 class="header-title text-center">注册</h2>
+        <form action="/regist" method="post">
+           <div class="form-group">
+                 <input type="text" class="form-control"  placeholder="请输入手机号码" name="phone">
+
+           </div>
+
+           <div class="form-group">
+                 <input type="password" class="form-control"  placeholder="请输入密码" name="password1" >
+           </div>
+
+           <div class="form-group">
+                 <input type="password" class="form-control"  placeholder="请再次输入密码"  name="password2">
+           </div>
+            <div class="form-group">
+                 <div class="pull-left">
+                     <div class="checkbox primary">
+                         <input  id="checkbox-1" type="checkbox">
+                         <label for="checkbox-1">I accept <a href="#">用户协议</a></label>
+                     </div>
+                     <div class="flaskfont"  style="color:red">
+                         {% for message in get_flashed_messages() %}
+                            {{message}}
+                         {% endfor %}
+                     </div>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                 <input type="submit" value="注册" class="btn btn-primary btn-block" >
+            </div>
+
+            <div class="form-group text-center">已经有帐号?  <a href="/login">登录 </a></div>
+
+        </form>
+
+        <div class="copy-text"> <p class="m-0">2019@苏州智慧数析信息科技有限公司</p></div>
+     </div>
+{% endblock %}

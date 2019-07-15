@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block head %}{% endblock %}
+
+
+{%block main%}
+
+<div class="left-side-inner">
+    <!--Sidebar nav-->
+    <ul class="nav nav-pills nav-stacked custom-nav">
+        <li class="menu-list nav-active"><a href="index.html"><i class="icon-home"></i> <span>Dashboard</span></a>
+            <ul class="sub-menu-list">
+                <li class="active"><a href="index.html"> Project1</a></li>
+                <li><a href="dashboard2.html"> Project2</a></li>
+            </ul>
+        </li>
+        <li class="menu-list"><a href="#"><i class="icon-grid"></i> <span>用例管理</span></a>
+            <ul class="sub-menu-list">
+                <li><a href="table-static.html"> 接口管理</a></li>
+                <li><a href="table-responsive.html">Responsive Table</a></li>
+                <li><a href="table-datatable.html">Data Tables</a></li>
+            </ul>
+        </li>
+        <table border="10">
+            <tr>
+                <td>id</td>
+                <td>接口名称</td>
+                <td>请求的URL</td>
+                <td>请求类型</td>
+                <td>请求头</td>
+                <td>请求数据</td>
+                <td>预期结果</td>
+                <td>实际结果</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>登录请求</td>
+                <td>http://2222</td>
+                <td>get</td>
+                <td>1</td>
+                <td>请1212求数据</td>
+                <td>3223</td>
+                <td>233</td>
+            </tr>
+        </table>
+    </ul>
+</div>
+{%endblock%}
+

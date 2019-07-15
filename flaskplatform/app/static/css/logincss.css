@@ -1,0 +1,12 @@
+.form-group{
+        position: relative;
+        line-height: 32px;
+        font-size: 12px;
+        width: 90px;
+}
+.form-control{
+    width: 100px;
+}
+.container{
+    width: 120px;
+}

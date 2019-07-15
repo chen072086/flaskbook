@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <table class="table table-bordered" border="2">
+    <tr>
+        <th>ID</th>
+        <th>名称</th>
+        <th>状态</th>
+        <th>机评状态</th>
+        <th>报告生成状态</th>
+        <th>操作</th>
+    </tr>
+        {% for i in u %}
+         <form action="taskid" method="post">
+            <tr>
+                <td><input type="text" name="taskid" value="{{ i[0] }}" /></td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td><input type="text" name="reportstus" value="{{ i[4] }}" /></td>
+                <td><input type="submit" value="提交" /></td>
+            </tr>
+
+         </form>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="post">
+         <table class="table table-bordered" border="2">
+    <tr>
+        <th>TaskID</th>
+        <th>Student_ID</th>
+        <th>student_name</th>
+        <th>exam_no</th>
+        <th>status</th>
+        <th>exam_status</th>
+        <th>ip</th>
+        <th>seat_no</th>
+    </tr>
+         {% for message in get_flashed_messages() %}
+            {{message}}
+         {% endfor %}
+
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+                <td>{{ i[7] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+         <table class="table table-bordered" border="2" id="stuRecordTable">
+            <tr>
+                <th>表的ID</th>
+                <th >TaskID</th>
+                <th>Class_ID</th>
+                <th>Student_ID</th>
+                <th>student_name</th>
+                <th>exam_no</th>
+                <th>status</th>
+                <th>exam_status</th>
+                <th>ip</th>
+                <th>seat_no</th>
+                <th>操作</th>
+            </tr>
+             {% for message in get_flashed_messages() %}
+                {{message}}
+             {% endfor %}
+
+             {% for i in u %}
+             <form action="/updatestu" method="post">
+                <tr>
+                 <td>{{ i[0] }}</td>
+                 <td><input name="taskid" readonly="readonly" value="{{ i[1] }}"> </td>
+                 <td>{{ i[2] }}</td>
+                 <td><input name="stuid" readonly="readonly" value="{{ i[3] }}"></td>
+                 <td>{{ i[4] }}</td>
+                 <td>{{ i[5] }}</td>
+                 <td>{{ i[6] }}</td>
+                 <td><input name="exam_status" value="{{ i[7] }}"></td>
+                 <td><input name="ip" value="{{ i[8] }}"></td>
+                 <td><input name="seat_no" value="{{ i[9] }}"></td>
+                 <td><input type="submit" value="提交"></td>
+                </tr>
+             </form>
+              {% endfor %}
+        </table>
+
+</body>
+</html>

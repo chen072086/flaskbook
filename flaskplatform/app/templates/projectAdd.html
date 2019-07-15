@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block  main %}
+<div class="container">
+   <form action="/projectadd" method="post">
+       <label>项目名称</label>
+       <input type="text" placeholder="请输入项目名称" name="projectname"></input>
+       <input type="submit" value="提交"></input>
+   </form>
+{% endblock %}
+
+

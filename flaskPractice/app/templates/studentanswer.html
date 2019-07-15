@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .modelname
+        {float:left}
+    </style>
+
+    <script type="text/javascript">
+
+
+    function deleterow(obj) {   //
+        var flag = confirm("确定要删除吗？");  //提示是否要删除 flag=true/false (  true删除  false不删除)
+        if (flag == true) {
+            var tr = obj.parentNode.parentNode;  //parentNode父节点
+            var table = tr.parentNode;
+            table.removeChild(tr); //删除子节点
+        } else{
+        }
+    }
+
+    function addrow(obj){
+      var tr=obj.parentNode.parentNode;//obj.parentNode.parentNode是<tr>
+        var table=tr.parentNode; //tr.parentNode是<table>
+        var y=table.rows.length;
+        var oldRow=tr;
+        var appendtable=document.getElementById('testtable')
+
+        if(oldRow){
+            var newRow=oldRow.cloneNode(true);
+            newRow.setAttribute("id","y-1");
+        }
+            table.appendChild(newRow);
+            appendtable.appendChild(newRow);
+    }
+
+    </script>
+</head>
+<body>
+    <table class="table table-bordered" border="2" id="stuRecordTable">
+        <tr>
+            <th>tableid</th>
+            <th>question_id</th>
+            <th>subquestion_no</th>
+            <th>task_id</th>
+            <th>respondents_id</th>
+            <th>student_id</th>
+            <th>snapshot_id</th>
+            <th>answer_type</th>
+            <th>mark</th>
+            <th>score</th>
+            <th>machine_score</th>
+            <th>manual_score</th>
+            <th>manual_detail</th>
+            <th>arbitration_score</th>
+            <th>file_id</th>
+            <th>machine_status</th>
+            <th>machine_reason</th>
+            <th>created_by</th>
+            <th>created_datetime</th>
+            <th>updated_by</th>
+            <th>updated_datetime</th>
+            <th>version</th>
+            <th>is_deleted</th>
+            <th>data_version</th>
+            <th>pattern_id</th>
+            <th>subjectiveobjective</th>
+            <th>student_answers</th>
+            <th>right_answers</th>
+            <th>rank_score</th>
+            <th>mark_ratio</th>
+            <th>pronunciation_score</th>
+            <th>fluency_score</th>
+            <th>integrity_score</th>
+            <th>rhythm_score</th>
+            <th>evaluation_engine</th>
+            <th>question_no</th>
+            <th>question_name</th>
+            <th>操作</th>
+        </tr>
+          {% for i in u %}
+             <tr>
+                <td><input type="text" name ="tableid" value="{{ i[0] }}"></td>
+                <td><input type="text" name ="question_id" value="{{ i[1] }}"></td>
+                <td><input type="text" name ="subquestion_no" value="{{ i[2] }}"></td>
+                <td><input type="text" name ="task_id" value="{{ i[3] }}"></td>
+                <td><input type="text" name ="respondents_id" value="{{ i[4] }}"></td>
+                <td><input type="text" name ="student_id" value="{{ i[5] }}"></td>
+                <td><input type="text" name ="snapshot_id" value="{{ i[6] }}"></td>
+                <td><input type="text" name="answer_type" value="{{ i[7] }}"></td>
+                <td><input type="text" name="mark" value="{{ i[8] }}"></td>
+                <td><input type="text" name="score" value="{{ i[9] }}"></td>
+                <td><input type="text" name ="machine_score" value="{{ i[10] }}"></td>
+                <td><input type="text" name ="manual_score" value="{{ i[11] }}"></td>
+                <td><input type="text" name ="manual_detail" value="{{ i[12] }}"></td>
+                <td><input type="text" name ="arbitration_score" value="{{ i[13] }}"></td>
+                <td><input type="text" name ="file_id" value="{{ i[14] }}"></td>
+                <td><input type="text" name ="machine_status" value="{{ i[15] }}"></td>
+                <td><input type="text" name ="machine_reason" value="{{ i[16] }}"></td>
+                <td><input type="text" name ="created_by" value="{{ i[17] }}"></td>
+                <td><input type="text" name ="created_datetime" value="{{ i[18] }}"></td>
+                <td><input type="text" name ="updated_by" value="{{ i[19] }}"></td>
+                <td><input type="text" name ="updated_datetime" value="{{ i[20] }}"></td>
+                <td><input type="text" name ="version" value="{{ i[21] }}"></td>
+                <td><input type="text" name ="is_deleted" value="{{ i[22] }}"></td>
+                <td><input type="text" name ="data_version" value="{{ i[23] }}"></td>
+                <td><input type="text" name ="pattern_id" value="{{ i[24] }}"></td>
+                <td><input type="text" name ="subjective" value="{{ i[25] }}"></td>
+                <td><input type="text" name ="student_answers" value="{{ i[26] }}"></td>
+                <td><input type="text" name ="right_answers" value="{{ i[27] }}"></td>
+                <td><input type="text" name ="rank_score" value="{{ i[28] }}"></td>
+                <td><input type="text" name ="mark_ratio" value="{{ i[29] }}"></td>
+                <td><input type="text" name ="pronunciation_score" value="{{ i[30] }}"></td>
+                <td><input type="text" name ="fluency_score" value="{{ i[31] }}"></td>
+                <td><input type="text" name ="integrity_score" value="{{ i[32] }}"></td>
+                <td><input type="text" name ="rhythm_score" value="{{ i[33] }}"></td>
+                <td><input type="text" name ="evaluation_engine" value="{{ i[34] }}"></td>
+                <td><input type="text" name ="question_no" value="{{ i[35] }}"></td>
+                <td><input type="text" name ="question_name" value="{{ i[36] }}"></td>
+                <td><input type="button" value="复制" onclick="addrow(this)"/><input type="button" value="删除" onclick="deleterow(this)"/><input type="submit" value="提交" /></td>
+            </tr>
+        {% endfor %}
+    </table>
+     <form action="/insertanswer" method="post">
+        <table border="2" id ='testtable' >
+
+        </table>
+     </form>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+.form-group{
+        position: relative;
+        line-height: 32px;
+        font-size: 12px;
+        width: 280px;
+    margin-right: 20px;
+}
+
+td,th{
+    padding: 20px;
+}
