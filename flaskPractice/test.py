@@ -20,7 +20,6 @@ class User(db.Model):
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
 
 
-
 if __name__=='__main__':
     db.drop_all()
     db.create_all()
